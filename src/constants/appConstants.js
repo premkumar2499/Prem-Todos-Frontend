@@ -1,3 +1,3 @@
 module.exports = {
-    HOST_URL : process.env.HOST_URL
+    HOST_URL : 'https://prem-todos.herokuapp.com/'
 }
