@@ -100,6 +100,7 @@ export const validateToken = (token) => async (dispatch) =>{
 
 export const login = (email, password) => async (dispatch) => {
   try {
+    console.log(HOST_URL);
     dispatch({
       type: USER_LOGIN_REQUEST,
     })
@@ -271,16 +272,6 @@ export const forgetPassword = (email) => async (dispatch) => {
       type: FORGET_PASSWORD_REQUEST,
     })
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-
-    // const { data } = await axios.post(
-    //   `${HOST_URL}/api/auth/password-reset/get-code`,
-    //   email
-    // )
     const { data } = await axios.post(`${HOST_URL}/api/auth/password-reset/get-code`, {
       email
     });

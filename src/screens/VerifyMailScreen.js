@@ -1,4 +1,4 @@
-import React, { useState,useEffect, useContext,useCallback } from "react";
+import React, { useState,useEffect,useCallback } from "react";
 import {useSelector,useDispatch} from 'react-redux'
 import Loading from "../components/Loading/Loading";
 
@@ -8,7 +8,7 @@ const VerifyMailScreen = ({history}) =>{
     const userInfo = useSelector(state => state.userInfo);
     const [isSending,setIsSending] = useState(false);
     const { loading, status, userData,userStatus} = userInfo ? userInfo : {};
-    const {success,error,msg} = status ? (status.verifyMail ? status.verifyMail : {}) : {};
+    const {error,msg} = status ? (status.verifyMail ? status.verifyMail : {}) : {};
     const [isLoading,setIsLoading] = useState(false);
     const dispatch = useDispatch();
     
@@ -36,7 +36,7 @@ const VerifyMailScreen = ({history}) =>{
         dispatch(UserVerifyMail(token))
         setIsSending(false)
         setIsLoading(false);
-      }, [isSending,token,isLoading,dispatch]) // update the callback if the state changes
+      }, [isSending,token,dispatch]) // update the callback if the state changes
     return(
         <div className="d-flex justify-content-center align-items-center vh-90">
         { loading || isLoading ? (

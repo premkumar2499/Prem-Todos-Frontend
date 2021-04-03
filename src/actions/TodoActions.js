@@ -158,12 +158,12 @@ export const deleteTodo = (todo_id,token) => async (dispatch) =>{
       dispatch({
         type : DELETE_TODO_REQUEST
       })
-      const config = {
-       headers: {
-         'Content-Type': 'application/json',
-         "Authorization" : `Bearer ${token}`
-       },
-     }
+    //   const config = {
+    //    headers: {
+    //      'Content-Type': 'application/json',
+    //      "Authorization" : `Bearer ${token}`
+    //    },
+    //  }
 
      const {data} = await axios.delete(`${HOST_URL}/api/auth/delete-todo`,{
         headers : {
@@ -204,12 +204,12 @@ export const completeTodo = (id,token) => async (dispatch) =>{
       dispatch({
         type : COMPLETE_TODO_REQUEST
       })
-      const config = {
-       headers: {
-         'Content-Type': 'application/json',
-         "Authorization" : `Bearer ${token}`
-       },
-     }
+    //   const config = {
+    //    headers: {
+    //      'Content-Type': 'application/json',
+    //      "Authorization" : `Bearer ${token}`
+    //    },
+    //  }
          const {data} = await axios.put(`${HOST_URL}/api/auth/completed`,
         { id },
         { headers: {"Authorization" : `Bearer ${token}`} }

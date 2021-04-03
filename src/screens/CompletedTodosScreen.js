@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {useSelector,useDispatch} from 'react-redux'
 
@@ -44,7 +44,7 @@ const CompletedTodosScreen = ({history}) =>{
     let completedTodos;
     if(todos && todos.length){
         let count=0;
-        completedTodos = todos.map((todo,index)=>{
+        completedTodos = todos.map((todo) => {
             if(todo.completed){
                 return(
                         <div className="col-12 p-1 col-lg-4 col-sm-6 p-sm-2 mb-2 p-lg-3 fs-3 grid-gap">
@@ -69,6 +69,7 @@ const CompletedTodosScreen = ({history}) =>{
             else{
                 count++;
             }
+            return null;
         })
         if(count===todos.length){
             completedTodos = null

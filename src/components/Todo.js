@@ -1,6 +1,6 @@
-import Axios from 'axios';
+
 import React , {useState} from 'react';
-import {useHistory} from 'react-router-dom'
+
 // import { HOST_URL } from '../../Constants';
 
 import EditTodo from './EditTodo';
@@ -11,15 +11,15 @@ import {useSelector,useDispatch} from 'react-redux'
 
 const Todo = ({id,content,created_at,openModel,setOpenModel,handleModal}) =>{
     const userInfo = useSelector(state => state.userInfo);
-    const { userData,userStatus } = userInfo ? userInfo : {};
+    const { userData } = userInfo ? userInfo : {};
     const token = userData ? userData.token : null;
 
     const userTodos = useSelector(state => state.todos);
-    const { loading,error, todos } = userTodos;
+    const { error } = userTodos;
 
     const dispatch = useDispatch();
     const [openEditModel,setOpenEditModel] = useState(false);
-    const [openDeleteModel,setOpenDeleteModel] = useState(false);
+    // const [openDeleteModel,setOpenDeleteModel] = useState(false);
 
     const handleEdit = () => {
         setOpenEditModel(!openEditModel);
@@ -34,20 +34,6 @@ const Todo = ({id,content,created_at,openModel,setOpenModel,handleModal}) =>{
         dispatch(completeTodo(todo_id,token));
         setOpenModel(true);
     }
-    
-    // const handleComplete = async(id)=>{
-    //     setLoading(true);
-    //     const completedRes = await Axios.put(`${HOST_URL}/api/auth/completed`,
-    //     { id },
-    //     { headers: {"Authorization" : `Bearer ${token}`} }
-    //     );
-    //     console.log(completedRes);
-    //     if(completedRes.data){
-    //         setError(completedRes.data.msg);
-    //     }
-    //     setLoading(false);
-    //     setOpenCompletedModel(true);
-    // }
     return(
     <div className="row border border-secondary mb-2 p-3 fs-3">
             <div className="container">

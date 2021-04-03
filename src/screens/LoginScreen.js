@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState,  useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -21,7 +21,7 @@ const LoginScreen = ({ location, history }) =>{
     const userInfo = useSelector((state) => state.userInfo);
     
     const { loading, status, userData,userStatus} = userInfo ? userInfo : {};
-    const {success,error,msg} = status ? (status.login ? status.login : {}) : {};
+    const {error,msg} = status ? (status.login ? status.login : {}) : {};
     const {error : resetPasswordError, msg : resetPasswordMsg} = status ? (status.resetPassword ? status.resetPassword : {}) : {};
     const dispatch = useDispatch()
 

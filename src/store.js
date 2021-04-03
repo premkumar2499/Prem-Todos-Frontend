@@ -1,22 +1,21 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import jwt from 'jsonwebtoken'
+
 
 // import { userLoginReducer,userRegisterReducer, userVerifyMailReducer, validateTokenReducer } from './reducers/userReducers'
 import { userInfoReducer } from './reducers/userReducers'
 import { todosReducer } from './reducers/TodoReducers'
-import { useDispatch } from 'react-redux'
-import {updateStatus} from './actions/userActions'
+
 
 const reducer = combineReducers({
     userInfo : userInfoReducer,
     todos : todosReducer
 })
 
-const userInfoFromStorage = localStorage.getItem('userInfo')
-  ? JSON.parse(localStorage.getItem('userInfo'))
-  : null
+// const userInfoFromStorage = localStorage.getItem('userInfo')
+//   ? JSON.parse(localStorage.getItem('userInfo'))
+//   : null
 
 // const state = store.getState();
 

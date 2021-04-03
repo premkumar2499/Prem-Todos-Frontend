@@ -14,7 +14,7 @@ const ForgetPasswordScreen = ({history}) =>{
     const [email,setEmail] = useState(undefined);
     const userInfo = useSelector((state) => state.userInfo);
     const { loading, status, userData,userStatus} = userInfo ? userInfo : {};
-    const {success,error,msg,userEmail} = status ? (status.forgetPassword ? status.forgetPassword : {}) : {};
+    const {error,msg,userEmail} = status ? (status.forgetPassword ? status.forgetPassword : {}) : {};
     
     const dispatch = useDispatch();
     useEffect(()=>{

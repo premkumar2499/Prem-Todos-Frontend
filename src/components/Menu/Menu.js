@@ -9,7 +9,7 @@ import {logout} from '../../actions/userActions'
 const Menu = ({handleMenu}) =>{
     const dispatch = useDispatch();
     const userInfo = useSelector((state) => state.userInfo)
-    const {loading, error, userData,userStatus} = userInfo;
+    const {userData,userStatus} = userInfo;
     return(
         <div className="side-nav">
             <div className="title">

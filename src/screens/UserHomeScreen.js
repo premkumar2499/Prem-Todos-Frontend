@@ -1,4 +1,4 @@
-import React, {  useContext, useDebugValue, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {useSelector,useDispatch} from 'react-redux'
 import moment from 'moment'
@@ -55,6 +55,7 @@ const UserHomeScreen = ({history}) =>{
             else{
                 count++;
             }
+            return null;
         })
         if(count===todos.length){
             todos_data = null

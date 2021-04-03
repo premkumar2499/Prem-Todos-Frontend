@@ -11,11 +11,11 @@ import { addTodo } from '../actions/TodoActions';
 const AddTodo = ({setOpenAddTodo, handleAddTodo}) => {
 
     const userInfo = useSelector(state => state.userInfo);
-    const {  userData,userStatus } = userInfo ? userInfo : {};
+    const {  userData } = userInfo ? userInfo : {};
     const token = userData ? userData.token : null;
 
     const userTodos = useSelector(state => state.todos);
-    const { loading,error, todos } = userTodos;
+    const { loading,error } = userTodos;
 
 
     const [newTodo, setNewTodo] = useState(undefined);

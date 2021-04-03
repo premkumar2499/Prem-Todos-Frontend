@@ -36,6 +36,7 @@ self.addEventListener('activate',(event) => {
                 if(!cacheWhiteList.includes(cacheName)){
                     return caches.delete(cacheName);
                 }
+                return cacheName;
             })
         ))
     )

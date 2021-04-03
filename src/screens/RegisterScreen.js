@@ -34,7 +34,7 @@ const RegisterScreen = ({ location, history }) =>{
 
     const userInfo = useSelector((state) => state.userInfo);
     const { loading, status, userData,userStatus} = userInfo ? userInfo : {};
-    const {success,error,msg} = status ? (status.register ? status.register : {}) : {};
+    const {error,msg} = status ? (status.register ? status.register : {}) : {};
 
     useEffect(()=>{
         if(userStatus){

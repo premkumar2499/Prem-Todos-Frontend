@@ -20,7 +20,7 @@ const ResetPasswordScreen = ({history}) =>{
 
     const userInfo = useSelector((state) => state.userInfo);
     const { loading, status, userData,userStatus} = userInfo ? userInfo : {};
-    const {success : forgetPasswordSuccess,error : forgetPasswordError ,msg : forgetPasswordmsg,userEmail} = status ? (status.forgetPassword ? status.forgetPassword : {}) : {};
+    const {success : forgetPasswordSuccess,msg : forgetPasswordmsg,userEmail} = status ? (status.forgetPassword ? status.forgetPassword : {}) : {};
     const {success : resetPasswordSuccess,error : resetPasswordError ,msg : resetPasswordmsg} = status ? (status.resetPassword ? status.resetPassword : {}) : {};
     
 

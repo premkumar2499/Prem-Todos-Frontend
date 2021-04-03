@@ -1,5 +1,6 @@
 import validator from 'validator'
-const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+
+const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#%^&*])(?=.{8,})");/* eslint-disable */
 
 export const validateEmail = (mail) =>{
     if (!validator.isEmail(mail)) {

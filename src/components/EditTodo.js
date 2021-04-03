@@ -10,11 +10,11 @@ import ShowMsg from './ShowMsg';
 const EditTodo = ({id,content,handleEdit}) => {
 
     const userInfo = useSelector(state => state.userInfo);
-    const {  userData,userStatus } = userInfo ? userInfo : {};
+    const {  userData } = userInfo ? userInfo : {};
     const token = userData ? userData.token : null;
 
     const userTodos = useSelector(state => state.todos);
-    const { loading,error, todos } = userTodos;
+    const { loading,error } = userTodos;
     const [editedTodo, setEditedTodo] = useState(content);
     
     

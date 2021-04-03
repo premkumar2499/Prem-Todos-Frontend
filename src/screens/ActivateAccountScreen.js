@@ -10,8 +10,8 @@ const ActivateAccountScreen = ({history}) =>{
     const userInfo = useSelector(state => state.userInfo);
     const [isSending,setIsSending] = useState(false);
     const { loading, status, userData,userStatus} = userInfo ? userInfo : {};
-    const {success,error,msg} = status ? (status.activateAccount ? status.activateAccount : {}) : {};
-    const [isLoading,setIsLoading] = useState(false);
+    const {success,msg} = status ? (status.activateAccount ? status.activateAccount : {}) : {};
+    const [setIsLoading] = useState(false);
     const { userId,secretCode } = useParams();
     const dispatch = useDispatch();
     
@@ -19,21 +19,18 @@ const ActivateAccountScreen = ({history}) =>{
     const token = userData ? userData.token : null;
     useEffect(()=>{
         if(userData && !userStatus){
-            setIsLoading(true);
             dispatch(activateAccount(userId,secretCode));
-            setIsLoading(false);
         }
-    },[userStatus,userData,dispatch,secretCode,userId])
+    },[userStatus,userData,dispatch,secretCode,userId,setIsLoading])
     const ResendRequest = useCallback(async () => {
         if (isSending) return
     
         setIsSending(true)
-        setIsLoading(true);
+
 
         dispatch(UserVerifyMail(token))
 
         setIsSending(false)
-        setIsLoading(false);
       }, [isSending,token,dispatch]) // update the callback if the state changes
     return(
         <div className="d-flex justify-content-center align-items-center vh-90">

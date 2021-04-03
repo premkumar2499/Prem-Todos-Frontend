@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch,useSelector } from "react-redux";
-import { useHistory,Link } from "react-router-dom";
-import { validateToken } from '../actions/userActions';
+import { Link } from "react-router-dom";
+
 import Loading from '../components/Loading/Loading'
-import { userInfoReducer } from '../reducers/userReducers';
-import store from '../store'
+
+
 
 const HomeScreen = ({history}) =>{
 
     const userInfo = useSelector(state => state.userInfo);
-    const { loading, error, userData,userStatus } = userInfo ? userInfo : {};
+    const { loading, userData,userStatus } = userInfo ? userInfo : {};
     const token = userData ? userData.token : null;
     const dispatch = useDispatch();
     useEffect(()=>{
