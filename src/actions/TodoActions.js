@@ -27,7 +27,7 @@ import { HOST_URL } from '../constants/appConstants'
 
 export const getTodos = (token) => async(dispatch) =>{
     try{
-        console.log(token);
+        // console.log(token);
         dispatch({
           type : GET_TODOS_REQUEST
         })
@@ -54,9 +54,6 @@ export const getTodos = (token) => async(dispatch) =>{
            payload: data.error,
          })
        }
-       
-   
-       // localStorage.setItem('userInfo', JSON.stringify(data))
       }
       catch(error){
        dispatch({
@@ -71,7 +68,7 @@ export const getTodos = (token) => async(dispatch) =>{
 
 export const addTodo = (newTodoObj,token) => async (dispatch) =>{
     try{
-        console.log(newTodoObj);
+        // console.log(newTodoObj);
         dispatch({
           type : ADD_TODO_REQUEST
         })
@@ -88,7 +85,7 @@ export const addTodo = (newTodoObj,token) => async (dispatch) =>{
          config
        )
        if(data.success){
-         console.log(data);
+        //  console.log(data);
          dispatch({
            type: ADD_TODO_SUCCESS,
            payload: data,
@@ -100,9 +97,6 @@ export const addTodo = (newTodoObj,token) => async (dispatch) =>{
            payload: data.msg,
          })
        }
-       
-   
-       // localStorage.setItem('userInfo', JSON.stringify(data))
       }
       catch(error){
        dispatch({
@@ -117,7 +111,7 @@ export const addTodo = (newTodoObj,token) => async (dispatch) =>{
 
 export const editTodo = (editTodoObj,token) => async (dispatch) =>{
   try{
-      console.log(editTodoObj);
+      // console.log(editTodoObj);
       dispatch({
         type : EDIT_TODO_REQUEST
       })
@@ -134,7 +128,7 @@ export const editTodo = (editTodoObj,token) => async (dispatch) =>{
        config
      )
      if(data.success){
-       console.log(data);
+      //  console.log(data);
        dispatch({
          type: EDIT_TODO_SUCCESS,
          payload: data,
@@ -160,7 +154,7 @@ export const editTodo = (editTodoObj,token) => async (dispatch) =>{
 
 export const deleteTodo = (todo_id,token) => async (dispatch) =>{
   try{
-      console.log(todo_id,token);
+      // console.log(todo_id,token);
       dispatch({
         type : DELETE_TODO_REQUEST
       })
@@ -170,15 +164,7 @@ export const deleteTodo = (todo_id,token) => async (dispatch) =>{
          "Authorization" : `Bearer ${token}`
        },
      }
- 
-    //  const { data } = await axios.delete(
-    //    `${HOST_URL}/api/auth/delete-todo`,{
-    //     config,
-    //     data : {
-    //       todo_id
-    //     }
-    //    }
-    //  )
+
      const {data} = await axios.delete(`${HOST_URL}/api/auth/delete-todo`,{
         headers : {
             "Authorization" : `Bearer ${token}`
@@ -187,7 +173,7 @@ export const deleteTodo = (todo_id,token) => async (dispatch) =>{
             todo_id
         }
     });
-     console.log(data);
+    //  console.log(data);
      if(data.success){
        dispatch({
          type: DELETE_TODO_SUCCESS,
@@ -200,9 +186,6 @@ export const deleteTodo = (todo_id,token) => async (dispatch) =>{
          payload: data.msg,
        })
      }
-     
- 
-     // localStorage.setItem('userInfo', JSON.stringify(data))
     }
     catch(error){
      dispatch({
@@ -217,7 +200,7 @@ export const deleteTodo = (todo_id,token) => async (dispatch) =>{
 
 export const completeTodo = (id,token) => async (dispatch) =>{
   try{
-      console.log(id,token);
+      // console.log(id,token);
       dispatch({
         type : COMPLETE_TODO_REQUEST
       })
@@ -231,7 +214,7 @@ export const completeTodo = (id,token) => async (dispatch) =>{
         { id },
         { headers: {"Authorization" : `Bearer ${token}`} }
         );
-     console.log(data);
+    //  console.log(data);
      if(data.success){
        dispatch({
          type: COMPLETE_TODO_SUCCESS,
@@ -244,9 +227,6 @@ export const completeTodo = (id,token) => async (dispatch) =>{
          payload: data.msg,
        })
      }
-     
- 
-     // localStorage.setItem('userInfo', JSON.stringify(data))
     }
     catch(error){
      dispatch({

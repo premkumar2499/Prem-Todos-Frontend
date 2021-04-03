@@ -72,11 +72,11 @@ const ResetPasswordScreen = ({history}) =>{
         setIsSending(true)
         dispatch(forgetPassword(userEmail));
         setIsSending(false)
-      }, [isSending]) // update the callback if the state changes
+      }, [isSending,dispatch,userEmail]) // update the callback if the state changes
     
 
     return(
-      <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="d-flex justify-content-center align-items-center vh-90">
           {loading?(
             <Loading/>
           ):(
@@ -103,7 +103,7 @@ const ResetPasswordScreen = ({history}) =>{
                                   </div>
                                 )}
                             <form onSubmit={submit}>
-                              <div className="form-group mb-1" id="formGroup">
+                              <div className="form-group mb-2" id="formGroup">
                                       <input
                                         id="email"
                                         type="email"
@@ -114,13 +114,12 @@ const ResetPasswordScreen = ({history}) =>{
                                         disabled={true}
                                       />
                               </div>
-                              <div className="form-group mb-1" id="formGroup">
+                              <div className="form-group mb-2" id="formGroup">
                                   <input
                                       id="password"
                                       type="password"
                                       className="form-control"
                                       placeholder="Password"
-                                      // onChange={(e) => setPassword(e.target.value)}
                                       onChange={(e) => validatePassword(e.target.value) ? (
                                         setPassword(e.target.value),setPasswordError(null)                                        
                                       ) : (
@@ -129,12 +128,11 @@ const ResetPasswordScreen = ({history}) =>{
                                   />
                                   <small id="emailHelp" className="form-text text-danger mb-2">{passwordError}</small>
                               </div>
-                              <div className="form-group mb-1" id="formGroup">
+                              <div className="form-group mb-2" id="formGroup">
                                 <input
                                   type="password"
                                   placeholder="Confirm Password"
                                   className="form-control" 
-                                  // onChange={(e) => setConfirmPassword(e.target.value)}
                                   onChange={(e) => comparePassword(password,e.target.value) ? (
                                     setConfirmPassword(e.target.value),setConfirmPasswordError(null)                                        
                                   ) : (
@@ -143,13 +141,12 @@ const ResetPasswordScreen = ({history}) =>{
                                   />
                                   <small id="emailHelp" className="form-text text-danger mb-2">{confirmPasswordError}</small>
                                 </div>
-                                <div className="form-group mb-1" id="formGroup">
+                                <div className="form-group mb-2" id="formGroup">
                                   <input
                                     id="code"
                                     type="text"
                                     placeholder="Enter Code"
                                     className="form-control" 
-                                    // onChange={(e) => setCode(e.target.value)}
                                     onChange={(e) => validateEmpty(e.target.value) ? (
                                       setCode(e.target.value.trim()),setCodeError(null)                                        
                                     ) : (

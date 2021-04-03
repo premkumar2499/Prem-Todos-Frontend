@@ -21,7 +21,7 @@ const HomeScreen = ({history}) =>{
         }
     },[userStatus,history,token,userData,dispatch])
     return(
-        <div className="d-flex flex-column justify-content-center align-items-center vh-100">
+        <div className="d-flex flex-column justify-content-center align-items-center vh-90">
             { loading ? (
                 <Loading/>
             ) : (
@@ -35,13 +35,6 @@ const HomeScreen = ({history}) =>{
                 )
             }
         </div>
-        // <div className="d-flex flex-column justify-content-center align-items-center vh-100">    
-        //     <div className="d-flex flex-column justify-content-evenly align-items-center h-25">
-        //         <h2 className="text-center">Welcome to your personalized TODO APP</h2>
-        //         <Link className="btn btn-outline-primary fs-4" to="/login">Log in</Link>  
-        //         <Link className="btn btn-outline-primary" to="/register">Register</Link>
-        //     </div>
-        // </div>
     )
 }
 

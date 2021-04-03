@@ -1,5 +1,5 @@
-import React, {useState,useContext, useEffect} from 'react';
-import Axios from "axios";
+import React, {useState} from 'react';
+
 import {editTodo} from '../actions/TodoActions'
 
 import {useSelector,useDispatch} from 'react-redux'
@@ -17,12 +17,10 @@ const EditTodo = ({id,content,handleEdit}) => {
     const { loading,error, todos } = userTodos;
     const [editedTodo, setEditedTodo] = useState(content);
     
-    // const [btnState,setBtnState] = useState(false)
+    
 
     const dispatch = useDispatch()
-    // const handleOnChange = (e) => {
-    //     setEditTodo(e.target.value.trim());
-    // }
+    
   
     const submit = async(e) =>{
         e.preventDefault();
@@ -33,30 +31,17 @@ const EditTodo = ({id,content,handleEdit}) => {
             created_at : moment(now).format('DD MMM YYYY hh:mm A'),
         }
         dispatch(editTodo(editTodoObj,token));
-        // const editTodoRes = await Axios.put(
-        //     `${HOST_URL}/api/auth/edit-todo`,
-        //     editTodoObj,
-        //     { headers: {"Authorization" : `Bearer ${token}`} }
-        //   );
-        //   console.log(editTodoRes);
-        //   setError(editTodoRes.data.msg);
-        // if(!editTodoRes.data.success){
-        //     setEditTodo(content);
-        // }
-        // else{
-        //   console.log(editTodoRes.data.todos);
-        // }
     }
 
     return (
-      <div className="d-flex justify-content-center align-items-center bg-secondary vh-100 add-todo">
+      <div className="d-flex justify-content-center align-items-center bg-secondary vh-50 add-todo">
       { loading ? (
         <Loading/>
       ) : (
             <div className="modal-dialog modal-dialog-centered w-100 w-xl-50" role="document">
                       <div className="modal-content">
                           { error ? (
-                              <ShowMsg error={error} handleClose={handleEdit} />
+                              <ShowMsg error={error} handleClose={handleEdit}/>
                           ) : (
                               <>
                                 <div className="modal-header">
@@ -79,7 +64,7 @@ const EditTodo = ({id,content,handleEdit}) => {
                                             className="form-control mb-1" 
                                             placeholder="Edit Todo"
                                             value={editedTodo}
-                                            onChange={(e) => setEditedTodo(e.target.value.trim())}
+                                            onChange={(e) => setEditedTodo(e.target.value)}
                                             />
                                     </div>
                                     <div className="container">

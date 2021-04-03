@@ -13,7 +13,6 @@ const ForgetPasswordScreen = ({history}) =>{
     const [emailError,setEmailError] = useState(undefined);
     const [email,setEmail] = useState(undefined);
     const userInfo = useSelector((state) => state.userInfo);
-    // const { loading, error, userData, userStatus, userEmail} = userInfo ? userInfo : {};
     const { loading, status, userData,userStatus} = userInfo ? userInfo : {};
     const {success,error,msg,userEmail} = status ? (status.forgetPassword ? status.forgetPassword : {}) : {};
     
@@ -37,33 +36,11 @@ const ForgetPasswordScreen = ({history}) =>{
     const submit = async (e) => {
       e.preventDefault();
       dispatch(forgetPassword(email));
-    //   try {
-          
-        // const passwordRes = await Axios.post(`${HOST_URL}/api/auth/password-reset/get-code`, {
-        //   email
-        // });
-    //     if(!passwordRes.data.success){
-    //         const err = passwordRes.data.errors.map((e,index)=>{
-    //             return(
-    //                 <div class="alert alert-danger alert-dismissible fade show" role="alert" key={index}>
-    //                     <small>{e.msg}</small>
-    //                 </div>
-    //             )
-    //         })
-    //         setEmailError(undefined);
-    //     }
-    //     else{
-    //         history.push("/reset-password");
-    //     }
-        
-    //   } catch (err) {
-    //     err.response.data.msg && setError(err.response.data.msg);
-    //   }
     };
     
 
     return(
-            <div className="d-flex justify-content-center align-items-center vh-100">
+            <div className="d-flex justify-content-center align-items-center vh-90">
                     { loading ? (
                         <Loading/>
                     ) : (
@@ -83,7 +60,6 @@ const ForgetPasswordScreen = ({history}) =>{
                                             type="email"
                                             className="form-control"
                                             placeholder="Enter E-mail"
-                                            // onChange={(e) => setEmail(e.target.value)}
                                             onChange={(e) => validateEmail(e.target.value) ? (
                                                 setEmail(e.target.value),setEmailError(null)
                                                 ) : (

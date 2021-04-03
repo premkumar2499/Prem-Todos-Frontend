@@ -21,7 +21,7 @@ const Todo = ({id,content,created_at,openModel,setOpenModel,handleModal}) =>{
     const [openEditModel,setOpenEditModel] = useState(false);
     const [openDeleteModel,setOpenDeleteModel] = useState(false);
 
-    const handleEdit = ()=> {
+    const handleEdit = () => {
         setOpenEditModel(!openEditModel);
     }
 
@@ -63,7 +63,7 @@ const Todo = ({id,content,created_at,openModel,setOpenModel,handleModal}) =>{
                 </div>
                 <div className="row pb-3">
                     <div className="col">
-                        <button className="btn btn-primary" onClick={() => handleEdit(id)}>Edit</button>
+                        <button className="btn btn-primary" onClick={handleEdit}>Edit</button>
                     </div>
                     <div className="col">
                         <button className="btn btn-danger" onClick={() => handleDelete(id)}>Delete</button>
@@ -76,6 +76,7 @@ const Todo = ({id,content,created_at,openModel,setOpenModel,handleModal}) =>{
                 </div>
             </div>
         {openEditModel  && <EditTodo id={id} content={content} handleEdit={handleEdit}/>}
+        {error  && <ShowMsg error={error} handleClose={handleEdit}/>}
         {openModel  && <ShowMsg error={error} handleClose={handleModal}/>}
         {/* {openModel && <ShowMsg error={error} handleClose={handleModal} />} */}
         </div>

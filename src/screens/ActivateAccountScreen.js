@@ -23,10 +23,7 @@ const ActivateAccountScreen = ({history}) =>{
             dispatch(activateAccount(userId,secretCode));
             setIsLoading(false);
         }
-        // else{
-        //     history.push('/userhome');
-        // }
-    },[userStatus,userData,dispatch])
+    },[userStatus,userData,dispatch,secretCode,userId])
     const ResendRequest = useCallback(async () => {
         if (isSending) return
     
@@ -37,9 +34,9 @@ const ActivateAccountScreen = ({history}) =>{
 
         setIsSending(false)
         setIsLoading(false);
-      }, [isSending,token,isLoading]) // update the callback if the state changes
+      }, [isSending,token,dispatch]) // update the callback if the state changes
     return(
-        <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="d-flex justify-content-center align-items-center vh-90">
             { loading? (
                 <Loading/>
             ) : (    

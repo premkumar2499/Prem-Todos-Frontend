@@ -1,6 +1,6 @@
-import React, {useState,useContext, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import Axios from "axios";
+
 import {useSelector,useDispatch} from 'react-redux'
 
 import moment from 'moment'
@@ -19,7 +19,6 @@ const AddTodo = ({setOpenAddTodo, handleAddTodo}) => {
 
 
     const [newTodo, setNewTodo] = useState(undefined);
-    const [btnState,setBtnState] = useState(false);
     const dispatch = useDispatch()
     
     useEffect(()=>{
@@ -28,9 +27,6 @@ const AddTodo = ({setOpenAddTodo, handleAddTodo}) => {
         }
     },[error])
 
-    const handleOnChange = (e) => {
-        setNewTodo(e.target.value);
-    }
   
     const submit = async(e) =>{
         e.preventDefault();
@@ -42,29 +38,13 @@ const AddTodo = ({setOpenAddTodo, handleAddTodo}) => {
             completed:false
         }
         dispatch(addTodo(newTodoObj,token));
-        // setOpenAddTodo(false);
-        // const addTodoRes = await Axios.post(
-        //     `${HOST_URL}/api/auth/add-todo`,
-        //     newTodoObj,
-        //     { headers: {"Authorization" : `Bearer ${token}`} }
-        //   );
-        // console.log(addTodoRes);
-        // if(!addTodoRes.data.success){
-        //     setNewTodo(undefined)
-        // }
-        // else{
-        //   setUserData({
-        //     todos : addTodoRes.data.todos
-        //   })
-        // }
-        // setLoading(false);
     }
 
     return (
-      <div className="d-flex justify-content-center align-items-center bg-secondary vh-100 add-todo">
+      <div className="d-flex justify-content-center align-items-center bg-secondary vh-50 add-todo">
       { loading ? (
         <Loading/>
-      ):(
+      ) : (
             <div className="modal-dialog modal-dialog-centered w-100 w-xl-50" role="document">
                 <div className="modal-content">
                         { error ? (

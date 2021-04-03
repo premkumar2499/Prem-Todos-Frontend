@@ -55,7 +55,7 @@ export const updateStatus = (status) => async (dispatch) =>{
 
 export const validateToken = (token) => async (dispatch) =>{
    try{
-     console.log(token);
+    //  console.log(token);
      dispatch({
        type : VALIDATE_TOKEN_REQUEST
      })
@@ -116,11 +116,7 @@ export const login = (email, password) => async (dispatch) => {
       config
     )
 
-    // dispatch({
-    //   type: USER_LOGIN_SUCCESS,
-    //   payload: data,
-    // })
-    console.log(data);
+    // console.log(data);
     if(data.success){
       dispatch({
         type: USER_LOGIN_SUCCESS,
@@ -146,7 +142,7 @@ export const login = (email, password) => async (dispatch) => {
 }
 
 export const register = (firstName,lastName, email, password, confirmPassword) => async (dispatch) => {
-  console.log(firstName);
+  // console.log(firstName);
     try {
       dispatch({
         type: USER_REGISTER_REQUEST,
@@ -163,7 +159,7 @@ export const register = (firstName,lastName, email, password, confirmPassword) =
         { firstName,lastName, email, password, confirmPassword },
         config
       )
-      console.log(data);
+      // console.log(data);
       if(data.success){
         dispatch({
           type: USER_REGISTER_SUCCESS,
@@ -176,18 +172,9 @@ export const register = (firstName,lastName, email, password, confirmPassword) =
           type : USER_REGISTER_FAILURE,
           payload : data
         })
-      }
-  
-      
-  
-      // dispatch({
-      //   type: USER_LOGIN_SUCCESS,
-      //   payload: data,
-      // })
-  
-      
+      }    
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       dispatch({
         type: USER_REGISTER_FAILURE,
         payload:

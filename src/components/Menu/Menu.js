@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'; 
+import React from 'react'; 
 import {Link} from 'react-router-dom'
 import './Menu.scss'
 // import UserContext from '../../context/userContext';
@@ -7,7 +7,6 @@ import {logout} from '../../actions/userActions'
 
 
 const Menu = ({handleMenu}) =>{
-    // const {userData,setUserData,loading,setLoading} = useContext(UserContext)
     const dispatch = useDispatch();
     const userInfo = useSelector((state) => state.userInfo)
     const {loading, error, userData,userStatus} = userInfo;

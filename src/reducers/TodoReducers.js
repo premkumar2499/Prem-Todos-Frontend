@@ -1,4 +1,3 @@
-import axios from 'axios'
 import {
     GET_TODOS_REQUEST,
     GET_TODOS_SUCCESS,
@@ -19,8 +18,8 @@ import {
   COMPLETE_TODO_REQUEST,
   COMPLETE_TODO_SUCCESS,
   COMPLETE_TODO_FAILURE,
+
   CLEAR_ERROR,
-  CLEAR_ERROR_FAILURE
   
 } from '../constants/TodoConstants'
 
@@ -47,7 +46,7 @@ export const todosReducer = (state = initialState,action) => {
         case EDIT_TODO_REQUEST:
           return { ...state,loading: true }
         case EDIT_TODO_SUCCESS:
-          return {...state,loading: false, todos: action.payload.todos ,error:action.payload.msg }
+          return {...state,loading: false, error:action.payload.msg }
         case EDIT_TODO_FAILURE:
           return { loading: false, error: action.payload }
 
@@ -67,8 +66,7 @@ export const todosReducer = (state = initialState,action) => {
 
         case CLEAR_ERROR:
           return {...state,error : null}
-        // case CLEAR_ERROR_FAILURE:
-        //   return {...state,error : action.payload}
+          
         default:
           return state
     }

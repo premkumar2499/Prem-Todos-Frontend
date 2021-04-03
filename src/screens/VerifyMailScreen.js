@@ -1,16 +1,11 @@
 import React, { useState,useEffect, useContext,useCallback } from "react";
-import { useHistory } from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux'
-import Axios from "axios";
-
 import Loading from "../components/Loading/Loading";
 
-import { HOST_URL } from '../constants/appConstants'
 import { UserVerifyMail } from "../actions/userActions";
 
 const VerifyMailScreen = ({history}) =>{
     const userInfo = useSelector(state => state.userInfo);
-    console.log(userInfo);
     const [isSending,setIsSending] = useState(false);
     const { loading, status, userData,userStatus} = userInfo ? userInfo : {};
     const {success,error,msg} = status ? (status.verifyMail ? status.verifyMail : {}) : {};
@@ -26,13 +21,6 @@ const VerifyMailScreen = ({history}) =>{
             else if(userData && !userStatus){
                 setIsLoading(true);
                 dispatch(UserVerifyMail(token));
-                // await Axios.get(`${HOST_URL}/api/auth/verification/get-activation-email`, { headers: {"Authorization" : `Bearer ${token}`} })
-                // .then((res)=>{
-                //     console.log(res);
-                // })
-                // .catch(err=>{
-                //     console.log(err);
-                // })
                 setIsLoading(false);
             }
             else{
@@ -46,20 +34,11 @@ const VerifyMailScreen = ({history}) =>{
         setIsSending(true)
         setIsLoading(true);
         dispatch(UserVerifyMail(token))
-        // send the actual request
-        // await Axios.get(`${HOST_URL}/api/auth/verification/get-activation-email`, { headers: {"Authorization" : `Bearer ${token}`} })
-        // .then((res)=>{
-        //     console.log(res);
-        // })
-        // .catch(err=>{
-        //     console.log(err);
-        // })
-        // once the request is sent, update state again
         setIsSending(false)
         setIsLoading(false);
       }, [isSending,token,isLoading,dispatch]) // update the callback if the state changes
     return(
-        <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="d-flex justify-content-center align-items-center vh-90">
         { loading || isLoading ? (
             <Loading/>
         ) : (

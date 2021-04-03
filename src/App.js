@@ -2,13 +2,12 @@
 import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { useDispatch,useSelector } from "react-redux";
+// import { useDispatch,useSelector } from "react-redux";
 import Header from './components/Header/Header'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
-import { useEffect } from 'react';
-import { activateAccount, validateToken } from './actions/userActions';
+
 import VerifyMailScreen from './screens/VerifyMailScreen';
 import ActivateAccountScreen from './screens/ActivateAccountScreen';
 import UserHomeScreen from './screens/UserHomeScreen';
@@ -17,23 +16,11 @@ import ForgetPasswordScreen from './screens/ForgetPasswordScreen';
 import ResetPasswordScreen from './screens/ResetPasswordScreen';
 
 function App() {
-  const dispatch = useDispatch();
-  const userInfo = useSelector(state => state.userInfo);
-  // console.log(userLogin);
-  const {loading, error, userData, userStatus } = userInfo;
-  //   const { loading, error, userInfo } = userLogin; 
-  const token = userData ? userData.token : null;
-  // useEffect(()=>{
-  //   if(token){
-  //     dispatch(validateToken(token));
-  //   }
-  // },[token])
-  // useEffect(()=>{
-  //   console.log(userStatus);
-  //   if(token && !userStatus){
-  //       dispatch(validateToken(token));
-  //     }
-  // },[userStatus, token, dispatch])
+  // const userInfo = useSelector(state => state.userInfo);
+
+  // const {loading, error, userData, userStatus } = userInfo;
+
+  // const token = userData ? userData.token : null;
   return (
     <>
       <BrowserRouter>
@@ -49,11 +36,6 @@ function App() {
               <Route path="/userhome" component={UserHomeScreen} />
               <Route path="/completed-todos" component={CompletedTodosScreen} />
               <Route path="/reset-password" component={ResetPasswordScreen} />
-              {/* <Route path="/verify-account/:userId/:secretCode" component={ActivateAccount} />
-              <Route path="/reset-password" component={ResetPassword} />
-              <Route path="/userhome" component={UserHome}/>
-              <Route path="/logout" component={Logout}/>
-              <Route path="/completed-todos" component={CompletedTodos}/> */}
             </Switch>
           </main>
       </BrowserRouter>

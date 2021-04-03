@@ -1,21 +1,16 @@
 import React, {  useContext, useDebugValue, useEffect, useState } from 'react';
-import { Link, useHistory } from "react-router-dom";
+
 import {useSelector,useDispatch} from 'react-redux'
 import moment from 'moment'
-// import Todos from '../Todos/Todos'
-// import AddTodo from '../Todos/AddTodo'
-// import UserContext from "../../context/userContext";
-// import Axios from 'axios'
 import Loading from '../components/Loading/Loading';
 import Todo from '../components/Todo'
 import AddTodo from '../components/AddTodo'
-import ShowMsg from '../components/ShowMsg'
-import {getTodos,clearError } from '../actions/TodoActions'
+
+import {getTodos } from '../actions/TodoActions'
 
 
 
 const UserHomeScreen = ({history}) =>{
-    // const {userData,loading,setLoading} = useContext(UserContext);
     const userInfo = useSelector(state => state.userInfo);
     const {  userData,userStatus } = userInfo ? userInfo : {};
     const token = userData ? userData.token : null;
@@ -74,10 +69,6 @@ const UserHomeScreen = ({history}) =>{
             { loading ? (
                 <Loading/>
             ) : (
-                // (!error===null) ? (
-                //     <ShowMsg error={error} handleClose={handleModal} />
-                // ):
-                // (
                     <>
                     <div className="row justify-content-end">
                         <div className="col-sm-2 col-4">
@@ -88,16 +79,17 @@ const UserHomeScreen = ({history}) =>{
                         { todos_data && todos_data.length ? (
                             todos_data
                         ) : (
-                            <h1>It seems that you completed all your todos.<br></br>Add more TODOS</h1>
+                            <div className="row">
+                            {todos && todos.length !== 0 ? (   
+                                    <h1>It seems that you completed all your todos.<br></br>Add more TODOS</h1>
+                            ) : (
+                                <h1>Welcome to our TODO APP<br></br>Add Your First todo</h1>
+                            )}
+                            </div>
                         )}
                     </div>
                     {openAddTodo && <AddTodo handleAddTodo={handleAddTodo} setOpenAddTodo={setOpenAddTodo}/>}
-                    {/* {openCompletedModel && <ShowMsg error={error} handleClose={handleCompletedModal} />} */}
-                    
-                    {/* <Todos/> */}
-                    {/* <Todos/> */}
                 </>
-                // )
             )}
                     
         </div>
