@@ -28,7 +28,7 @@ const HomeScreen = ({history}) =>{
                     <>
                         <div className="d-flex flex-column justify-content-evenly align-items-center h-25">
                             <h2 className="text-center">Welcome to your personalized TODO APP</h2>
-                            <Link className="btn btn-outline-primary fs-4" to="/login">Log in</Link>  
+                            <Link className="btn btn-outline-primary fs-4 mb-2" to="/login">Log in</Link>  
                             <Link className="btn btn-outline-primary" to="/register">Register</Link>
                         </div>
                     </>
