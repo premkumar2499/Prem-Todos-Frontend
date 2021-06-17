@@ -18,7 +18,7 @@ const ForgetPasswordScreen = ({history}) =>{
     
     const dispatch = useDispatch();
     useEffect(()=>{
-        console.log(userStatus);
+        // console.log(userStatus);
         if(userStatus){
             history.push('/userhome');
         }
@@ -52,7 +52,7 @@ const ForgetPasswordScreen = ({history}) =>{
                                         <p className="fs-3">Get Password Reset Code</p>
                                     </div>
                                     <div className="modal-body">
-                                    {msg && <div class="alert alert-danger">{msg}</div>}
+                                    {msg && <div className="alert alert-danger">{msg}</div>}
                                         <form onSubmit={submit}>
                                         <div className="form-group">
                                             <input

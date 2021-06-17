@@ -21,23 +21,23 @@ const Menu = ({handleMenu}) =>{
             <div className="links">
                     { userStatus ? (
                         <>
-                        <li class="nav-item">
-                            <Link class="nav-link active" onClick={handleMenu} aria-current="page" to="/">Home</Link>
+                        <li className="nav-item">
+                            <Link className="nav-link active" onClick={handleMenu} aria-current="page" to="/">Home</Link>
                         </li>
-                        <li class="nav-item">
-                            <Link class="nav-link" onClick={handleMenu} aria-current="page" to="/completed-todos">Completed todos</Link>
+                        <li className="nav-item">
+                            <Link className="nav-link" onClick={handleMenu} aria-current="page" to="/completed-todos">Completed todos</Link>
                         </li>
-                        <li class="nav-item">
-                            <Link class="nav-link" onClick={()=>{dispatch(logout());handleMenu()}} aria-current="page">Logout</Link>
+                        <li className="nav-item">
+                            <Link className="nav-link" onClick={()=>{dispatch(logout());handleMenu()}} aria-current="page">Logout</Link>
                         </li>                        
                         </>
                     ) : (
                         <>
-                        <li class="nav-item">
-                            <Link class="nav-link active" onClick={handleMenu} aria-current="page" to="/login">Login</Link>
+                        <li className="nav-item">
+                            <Link className="nav-link active" onClick={handleMenu} aria-current="page" to="/login">Login</Link>
                         </li>
-                        <li class="nav-item">
-                            <Link class="nav-link" onClick={handleMenu}  aria-current="page" to="/register">Register</Link>
+                        <li className="nav-item">
+                            <Link className="nav-link" onClick={handleMenu}  aria-current="page" to="/register">Register</Link>
                         </li>
                         </>
                     )}

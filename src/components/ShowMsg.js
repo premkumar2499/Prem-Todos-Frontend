@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux'
 import { clearError } from '../actions/TodoActions';
 
 const ShowMsg = ({error,handleClose}) =>{
-    console.log(error);
+    // console.log(error);
     const dispatch = useDispatch();
     return(
         <div className="d-flex justify-content-center align-items-center bg-secondary vh-50 add-todo">

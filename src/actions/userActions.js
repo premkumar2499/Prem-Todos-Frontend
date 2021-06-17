@@ -100,7 +100,7 @@ export const validateToken = (token) => async (dispatch) =>{
 
 export const login = (email, password) => async (dispatch) => {
   try {
-    console.log(HOST_URL);
+    // console.log(HOST_URL);
     dispatch({
       type: USER_LOGIN_REQUEST,
     })

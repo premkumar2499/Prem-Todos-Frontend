@@ -37,17 +37,17 @@ const CompletedTodosScreen = ({history}) =>{
     const handleModal = () =>{
         setOpenModal(!openModal);
     }
-    const handleDelete = async(todo_id)=>{
+    const handleDelete = async(todo_id) => {
         dispatch(deleteTodo(todo_id,token))
         setOpenModal(true);
     }
     let completedTodos;
     if(todos && todos.length){
         let count=0;
-        completedTodos = todos.map((todo) => {
+        completedTodos = todos.map((todo,index) => {
             if(todo.completed){
                 return(
-                        <div className="col-12 p-1 col-lg-4 col-sm-6 p-sm-2 mb-2 p-lg-3 fs-3 grid-gap">
+                        <div className="col-12 p-1 col-lg-4 col-sm-6 p-sm-2 mb-2 p-lg-3 fs-3 grid-gap" key={index}>
                             <div className="container">
                                 <div className="row pb-3">
                                     <div className="col">

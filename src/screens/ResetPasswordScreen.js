@@ -27,7 +27,7 @@ const ResetPasswordScreen = ({history}) =>{
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        console.log(userStatus);
+        // console.log(userStatus);
         if(userStatus){
             history.push('/userhome');
         }
@@ -49,7 +49,7 @@ const ResetPasswordScreen = ({history}) =>{
     },[history,userStatus,userData,userEmail,resetPasswordError,resetPasswordSuccess]);
     
     useEffect(()=>{
-      console.log(passwordError,confirmPasswordError,codeError);
+      // console.log(passwordError,confirmPasswordError,codeError);
       const mountResetPassword = () =>{
         if(passwordError === null && confirmPasswordError === null && codeError === null){
           setBtnState(true);
@@ -94,11 +94,11 @@ const ResetPasswordScreen = ({history}) =>{
                           </div>
                           <div className="modal-body">
                                 {resetPasswordError ? (
-                                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                  <div className="alert alert-danger alert-dismissible fade show" role="alert">
                                     <small>{resetPasswordmsg}</small>
                                   </div>
                                 ) : (
-                                   forgetPasswordSuccess && <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                   forgetPasswordSuccess && <div className="alert alert-success alert-dismissible fade show" role="alert">
                                      <small>{forgetPasswordmsg}</small>
                                   </div>
                                 )}
